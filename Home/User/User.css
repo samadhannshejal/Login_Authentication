@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+#userLogOutBtn {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 16px;
+    position: absolute;
+    top: 0px;
+    right: 30px;
+  }
+  
+  #userLogOutBtn:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  #UserHeading {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: red;
+  }
+  
