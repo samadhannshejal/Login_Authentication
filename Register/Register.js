@@ -1,16 +1,16 @@
-var RegisterButton = document.getElementById('RegisterButton');
+var registerButton = document.getElementById('RegisterButton');
 const form = document.querySelector('form');
-const nevigetToLoginPage = document.getElementById('neviaget');
-let RegisterdataArray = JSON.parse(localStorage.getItem('RegisterData')) || [];
+const nevigateToLogInPage = document.getElementById('neviaget');
+let registeredDataFromRegisteredPage = JSON.parse(localStorage.getItem('RegisterData')) || [];
 let id = 0;
 
 
-nevigetToLoginPage.addEventListener('click', (e) => {
+nevigateToLogInPage.addEventListener('click', (e) => {
   e.preventDefault()
   window.location.href = "../Login/Login.html"
   console.log(e)
 })
-RegisterButton.addEventListener('click', (e) => {
+registerButton.addEventListener('click', (e) => {
   e.preventDefault()
   const firstName = document.getElementById('RegisterInputName').value;
   const lastName = document.getElementById('RegisterInputLastName').value;
@@ -34,12 +34,12 @@ RegisterButton.addEventListener('click', (e) => {
     const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).+$/;
     return regex.test(password);
   }
-  function isStrongEmail(emails){
-   
-    return (emails.includes("@gmail.com")||emails.includes('@GMAIL.COM'))
+  function isStrongEmail(emails) {
+
+    return (emails.includes("@gmail.com") || emails.includes('@GMAIL.COM'))
   }
   let isAlreadyRegistered = false;
-  RegisterdataArray.forEach(user => {
+  registeredDataFromRegisteredPage.forEach(user => {
     if ((user.email === email || user.userName === userName)) {
       isAlreadyRegistered = true;
     }
@@ -76,8 +76,8 @@ RegisterButton.addEventListener('click', (e) => {
     email.innerHTML = 'email is required';
     email.classList.add('red')
     return;
-  } 
-  else if(!isStrongEmail(email)){
+  }
+  else if (!isStrongEmail(email)) {
     const email = document.getElementById('emailReq');
     email.innerHTML = 'invalid email';
     email.classList.add('red');
@@ -94,9 +94,9 @@ RegisterButton.addEventListener('click', (e) => {
     password.classList.add('red')
     return;
   } else if (!isStrongPassword(password)) {
-   const passwordReq= document.getElementById('passwordReq') 
-   passwordReq.innerHTML='Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character';
-   passwordReq.classList.add('red')
+    const passwordReq = document.getElementById('passwordReq')
+    passwordReq.innerHTML = 'Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character';
+    passwordReq.classList.add('red')
     return;
   } else {
     document.getElementById('passwordReq').innerHTML = '';
@@ -108,9 +108,9 @@ RegisterButton.addEventListener('click', (e) => {
     reEnterpassword.classList.add('red')
     return;
   } else if (reEnterPassword !== password) {
-   const reEnterpasswordReq= document.getElementById('reEnterpasswordReq');
-   reEnterpasswordReq.innerHTML = 'Passwords do not match';
-   reEnterpasswordReq.classList.add('red');
+    const reEnterpasswordReq = document.getElementById('reEnterpasswordReq');
+    reEnterpasswordReq.innerHTML = 'Passwords do not match';
+    reEnterpasswordReq.classList.add('red');
 
     return;
   } else {
@@ -125,8 +125,8 @@ RegisterButton.addEventListener('click', (e) => {
   } else if ((email.includes('@gmail.com') || email.includes('@GMAIL.COM')) && (password.length > 6 && (isStrongPassword(password))) && (reEnterPassword == password)) {
     id++;
 
-    RegisterdataArray.push(registrationInfo);
-    localStorage.setItem('RegisterData', JSON.stringify(RegisterdataArray));
+    registeredDataFromRegisteredPage.push(registrationInfo);
+    localStorage.setItem('RegisterData', JSON.stringify(registeredDataFromRegisteredPage));
     Swal.fire({
       position: 'top-end',
       icon: 'success',

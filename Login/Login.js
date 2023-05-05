@@ -15,9 +15,7 @@ loginBtn.addEventListener("click", (e) => {
   const filterRegisterData = userData.find((user) => {
     return user.userName == username && user.password == password
   });
-  const filteredAdminData = userData.find((admin) => {
-    return admin.userName == username && admin.password == password
-  });
+ 
   let logedUser = JSON.parse(localStorage.getItem('logedUser')) || [];
   let logedAdmin = JSON.parse(localStorage.getItem('logedAdmin')) || [];
   if (filterRegisterData) {
@@ -59,32 +57,14 @@ loginBtn.addEventListener("click", (e) => {
       location.reload()
       window.location.href = "./../Home/Admin/Admin.html"
     }
-    // filteredData.forEach((loggedAccount) => {
-    //   if (loggedAccount.userType === 'User') {
-    //     // const userlogin = {
-    //     //   username: loggedAccount.userName,
-    //     //   UserFirstName: loggedAccount.firstName,
-    //     //   UserlastName: loggedAccount.lastName,
-    //     //   UserEmail: loggedAccount.email,
-    //     //   isActive: true,
-
-    //     // }
-    //     // logedUser.push(userlogin);
-    //     localStorage.setItem('logedUser', JSON.stringify(logedUser))
-    //     location.reload()
-    //     window.location.href = "./../Home/User/User.html"
-    //   }
-      
-     
-     
-    // })
   } else {
     // login failed
     Swal.fire({
+      // position: 'top-end',
       icon: 'error',
       title: 'Oops...',
       text: `somthing went wrong !`,
-      footer: '<a href=""></a>'
+      // footer: '<a href=""></a>'
     })
   }
   form.reset()

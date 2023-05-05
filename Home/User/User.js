@@ -1,6 +1,6 @@
 const UserLogoutBtn=document.getElementById('userLogOutBtn');
 let UserLogged= JSON.parse(localStorage.getItem('logedUser'));
-const heading=document.getElementById('UserHeading');
+const heading=document.getElementById('UserHeading');                                                     
 let actionfind = UserLogged.find((item) => item.isActive === true);
  heading.innerHTML=`Welcome ${actionfind.UserFirstName}`
 UserLogoutBtn.addEventListener('click',(e)=>{
